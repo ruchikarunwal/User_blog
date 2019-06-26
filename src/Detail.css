@@ -1,0 +1,18 @@
+.thirteen p{
+font-size:16px;
+margin:5px !important;
+font-family:apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji !important;
+}
+.thirteen h2{
+  margin-bottom:15px;
+  font-size:32px !important;
+  font-weight:500 !important;
+  font-family:apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji !important;
+}
+
+.card{
+  /* width:100% !important; */
+  padding:10px !important;
+  margin:20px 0px !important;
+  border-radius:0px !important;
+}

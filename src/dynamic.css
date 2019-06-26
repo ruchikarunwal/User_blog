@@ -1,0 +1,25 @@
+img {
+  width: 200px !important;
+  height: 200px;
+  margin: auto;
+}
+
+div .ant-card-cover {
+  background-color: #f5f5f5;
+}
+
+.ant-card-body p {
+  margin-bottom: 5px
+}
+
+.ant-card-actions svg {
+  width: 20px;
+  height: 20px;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor:pointer;
+}

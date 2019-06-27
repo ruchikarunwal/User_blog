@@ -11,12 +11,26 @@ class App extends React.Component {
     loading: true,
   };
   deleteUser = (index) => {
-    const users = this.state.data.filter(e => e !== index);
+    const users = this.state.data.filter(e => e.id !== index);
     this.setState({
       data: [...users]
     });
   }
+  updateValue = (values, id) => {
+    const newData = this.state.data.filter(e => {
+      if (e.id === id) {
+        e.name = values.name;
+        e.email = values.email;
+        e.phone = values.phone;
+        e.website = values.website;
+      }
+      return (e);
+    });
+    this.setState({
+      data: [...newData]
+    })
 
+  }
 
   // componentDidMount = async () => {
   //   const response = await Userdata.get('/users');
@@ -31,7 +45,7 @@ class App extends React.Component {
       data: response.data,
       loading: false
     });
- })
+  })
   render() {
     if (this.state.loading === true) {
       return (
@@ -54,7 +68,18 @@ class App extends React.Component {
           deleteUser={
             this.deleteUser
           }
+          updateValue={this.updateValue}
         />
+        {
+          this.state.data.map(e => {
+            return (<div key={e.id}>
+              <p >{e.name}</p>
+              <p >{e.email}</p>
+              <p >{e.phone}</p>
+              <p >{e.website}</p>
+            </div>);
+          })
+        }
       </div >
     );
 

@@ -8,9 +8,9 @@ import './dynamic.css';
 class Card1 extends React.Component {
   constructor(props) {
     super(props);
-    const { name, phone, website, email } = this.props.data;
+    //const { name, phone, website, email } = this.props.data;
     this.state = {
-      theme: '', name: name, email: email, phone: phone, website: website
+      theme: ''
     }
   }
   ChangeColor = () => {
@@ -40,15 +40,10 @@ class Card1 extends React.Component {
         return;
       }
       console.log('Received values of form: ', values);
-
       this.setState({
         visible: false,
-        name: values.name,
-        email: values.email,
-        phone: values.phone, website: values.website
       });
-      console.log(values.name);
-      console.log(values.email);
+      this.props.updateValue(values, this.props.data.id);
     });
   };
 
@@ -74,15 +69,15 @@ class Card1 extends React.Component {
           actions={
             [<button onClick={this.ChangeColor} ><Icon type="heart" theme={this.state.theme} style={{ color: 'red' }} /></button>,
             <button onClick={this.showModal}> <Icon type="edit" /></button>,
-            <button onClick={() => this.props.deleteUser(this.props.data)}><Icon type="delete" theme="filled" /></button>
+            <button onClick={() => this.props.deleteUser(this.props.data.id)}><Icon type="delete" theme="filled" /></button>
             ]
           }
         >
           {<div className="card-body">
-            <h3>{this.state.name}</h3>
-            <p> <Icon type="mail" style={{ marginRight: '10px' }} />  {this.state.email} </p>
-            <p><Icon type="phone" style={{ marginRight: '10px' }} />  {this.state.phone}</p>
-            <p><Icon type="global" style={{ marginRight: '10px' }} />https://{this.state.website}</p>
+            <h3>{this.props.data.name}</h3>
+            <p> <Icon type="mail" style={{ marginRight: '10px' }} />  {this.props.data.email} </p>
+            <p><Icon type="phone" style={{ marginRight: '10px' }} />  {this.props.data.phone}</p>
+            <p><Icon type="global" style={{ marginRight: '10px' }} />https://{this.props.data.website}</p>
           </div>}
         </Card>
         <CollectionCreateForm

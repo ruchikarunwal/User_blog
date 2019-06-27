@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 const CardList = (props) => {
 
   const cards = props.data.map(e => {
-    return <Card1 data={e} key={e.id} deleteUser={props.deleteUser} />;
+    return <Card1 data={e} key={e.id} deleteUser={props.deleteUser} updateValue={props.updateValue} />;
   });
 
   return (
